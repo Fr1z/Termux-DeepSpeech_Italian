@@ -1,4 +1,4 @@
-# Open source offline speech recognition for Android using Mozilla's DeepSpeech in Termux
+# Open source offline speech recognition for Android using Mozilla's DeepSpeech in Termux and DeepSpeech-Italian-Model 
 
 ## Requirements
 - ~3GB of disk space during installation; afterwards only ~2GB
@@ -9,7 +9,7 @@
 
 - Install the following (open source) apps: Termux, Termux:API
 - Open Termux and run
-    `pkg i -y git && git clone https://github.com/T-vK/Termux-DeepSpeech.git && cd ./Termux-DeepSpeech && ./speech2text`
+    `pkg i -y git && git clone https://github.com/Fr1z/Termux-DeepSpeech_Italian.git && cd ./Termux-DeepSpeech && ./speech2text`
 
 This will take a while beacuse it needs to download a pre-trained DeepSpeech model and a DeepSpeech release. It will probably also ask for microphone permissions (which are required for obvious reasons).
 
@@ -45,6 +45,8 @@ fi
 If you install the [Termux:Widget](https://f-droid.org/app/com.termux.widget) app and save the above script under "$HOME/.shortcuts/tasks/" and make it executable for example like this: `chmod +x "$HOME/.shortcuts/tasks/speech-command"` (speech-command is the name of the script).
 You can then then create a widget that triggers the script. Or using the app [HomeBot](https://f-droid.org/app/com.abast.homebot) (open source) you can remap long-pressing the home button which usually triggers the Google voice assistent to run your speech-command script.
 
+Models by
+https://github.com/MozillaItalia/DeepSpeech-Italian-Model
 
 ## Warning
 
