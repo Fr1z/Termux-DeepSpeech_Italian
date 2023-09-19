@@ -47,7 +47,7 @@ download_deepspeech() {
 
 download_example_audio() {
     rm -rf ./audio
-    wget  "https://github.com/MozillaItalia/DeepSpeech-Italian-Model/files/4610711/cv-it_tiny.tar.gz" /example-audio.tar.gz -q --show-progress
+    wget  "https://github.com/MozillaItalia/DeepSpeech-Italian-Model/files/4610711/cv-it_tiny.tar.gz" -O ./example-audio.tar.gz -q --show-progress
     tar xf ./example-audio.tar.gz
     rm -f ./example-audio.tar.gz
 }
@@ -57,13 +57,11 @@ download_models() {
     wget "https://github.com/mozilla/DeepSpeech/releases/download/v${DEEPSPEECH_VERSION}/deepspeech-${DEEPSPEECH_VERSION}-models.tflite" -O "./deepspeech-${DEEPSPEECH_VERSION}-models.tflite" -q --show-progress && \
     wget "https://github.com/mozilla/DeepSpeech/releases/download/v${DEEPSPEECH_VERSION}/deepspeech-${DEEPSPEECH_VERSION}-models.scorer" -O "./deepspeech-${DEEPSPEECH_VERSION}-models.scorer" -q --show-progress
     if [[ "$?" != 0 ]]; then
-        wget "https://github.com/MozillaItalia/DeepSpeech-Italian-Model/releases/download/2021.07.22/transfer_tensorflow_it.zip" -O ./models.tar.gz -q --show-progress
-        echo "Extracting Italian ./models.tar.gz ..."
-        tar xf ./models.tar.gz
-        rm -f ./models.tar.gz
-        mv ./deepspeech-*-models ./models
-        rm -f ./._*
-        rm -f ./models/._*
+        wget "https://github.com/MozillaItalia/DeepSpeech-Italian-Model/releases/download/2021.07.22/model_tensorflow_it.zip" -O ./model.zip -q --show-progress
+        wget "https://github.com/MozillaItalia/DeepSpeech-Italian-Model/releases/download/2021.07.22/transfer_tensorflow_it.zip" -O ./transfer.zip -q --show-progress
+        echo "Extracting Italian ./model.zip ..."
+        unzip model.zip -d ./models
+        unzip transfer.zip -d ./models
     fi
 }
 ensure_requirements_installed
